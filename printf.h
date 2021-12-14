@@ -19,9 +19,9 @@
 int	    ft_printf(const char *str, ...);
 int	    ft_select(char c, va_list arguments);
 void    ft_putchar(int c);
-int    	ft_putstr(char *str);
-void	ft_putnbr(int n);
-void    ft_putnbr_unsigned(unsigned int n);
+int     ft_putstr(char *str);
+int 	ft_putnbr(int n);
+int     ft_putnbr_unsigned(unsigned int n);
 size_t	ft_strlen(char *str);
 
 #endif

@@ -27,20 +27,20 @@ int	ft_select(char c, va_list arguments)
 		
 	//if (c == 'p')
 	//	;
-	//if (c == 'd')
-	//	;
+	if (c == 'd')
+		result += ft_putnbr(va_arg(arguments, int));
 	if (c == 'i')
-		ft_putnbr(va_arg(arguments, int));
+		result += ft_putnbr(va_arg(arguments, int));
 	if (c == 'u')
-		ft_putnbr_unsigned(va_arg(arguments, unsigned int));
+		result += ft_putnbr_unsigned(va_arg(arguments, unsigned int));
 //	if (c == 'x')
 //		ft_putnbr_base(va_arg(arguments, (unsigned int)), "0123456789abcdef");
 //	if (c == 'X')
 //		ft_putnbr_base(va_arg(arguments, (unsigned int)), "0123456789ABCDEF");
-//	if (c == "%")
-//	{
-//		write(1, "%", 1);
-//		result++;
-//	}
+	if (c == '%')
+		{
+		write(1, "%", 1);
+		result++;
+	}
 	return (result);
 }

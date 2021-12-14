@@ -14,9 +14,9 @@
 
 int	ft_printf(const char *str, ...)
 {
-	int	count;
-	int	result;
-	va_list arguments;
+	int		count;
+	int		result;
+	va_list	arguments;
 
 	va_start(arguments, str);
 	count = 0;
@@ -29,11 +29,13 @@ int	ft_printf(const char *str, ...)
 			result++;
 			count++;
 		}
-		if (str[count])
+		if (str[count] && str[count + 1])
 		{
 			result = result + ft_select(str[count + 1], arguments);
 			count += 2;
 		}
+		else
+			break ;
 	}
 	va_end(arguments);
 	return (result);

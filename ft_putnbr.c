@@ -12,30 +12,36 @@
 
 #include "printf.h"
 
-void	ft_recursive_putnbr(int n)
+int	ft_recursive_putnbr(int n)
 {
 	ssize_t	rest;
+	int		result;
 
+	result = 1;
 	rest = n % 10 + '0';
 	n = n / 10;
 	if (n > 0)
-		ft_recursive_putnbr(n);
+		result += ft_recursive_putnbr(n);
 	write(1, &rest, 1);
-	return ;
+	return (result);
 }
 
-void	ft_putnbr(int n)
+int	ft_putnbr(int n)
 {
+	int	result;
+
+	result = 0;
 	if (n == -2147483648)
 	{
-		write(1, "-2147483648", 1);
-		return ;
+		write(1, "-2147483648", 11);
+		return (11);
 	}
 	if (n < 0)
 	{
 		write(1, "-", 1);
 		n = -n;
+		result = 1;
 	}
-	ft_recursive_putnbr(n);
-	return ;
+	result += ft_recursive_putnbr(n);
+	return (result);
 }
