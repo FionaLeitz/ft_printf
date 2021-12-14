@@ -10,13 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef "PRINTF_H"
-# define "PRINFT_H"
+#ifndef PRINTF_H
+# define PRINTF_H
 
 # include <unistd.h>
 # include <stdarg.h>
 
-int		ft_printf(const char *str, ...);
-size_t	ft_select(char c, 
+int	    ft_printf(const char *str, ...);
+int	    ft_select(char c, va_list arguments);
+void    ft_putchar(int c);
+int    	ft_putstr(char *str);
+void	ft_putnbr(int n);
+void    ft_putnbr_unsigned(unsigned int n);
+size_t	ft_strlen(char *str);
 
 #endif

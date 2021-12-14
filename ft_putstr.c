@@ -12,11 +12,11 @@
 
 #include "printf.h"
 
-void	ft_putstr(char *str)
+int	ft_putstr(char *str)
 {
-	size_t	count;
+	int	result;
 
-	count = ft_strlen(str);
-	write(1, str, count);
-	return ;
+	result = ft_strlen(str);
+	write(1, str, result);
+	return (result);
 }
