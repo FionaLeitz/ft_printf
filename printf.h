@@ -17,6 +17,6 @@
 # include <stdarg.h>
 
 int		ft_printf(const char *str, ...);
-size_t	ft_choice(char c, 
+size_t	ft_select(char c, 
 
 #endif

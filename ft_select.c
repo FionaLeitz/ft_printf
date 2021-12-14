@@ -12,36 +12,37 @@
 
 #include "libft.h"
 
-int	ft_select(char c, ...)
+int	ft_select(char c, va_list arguments)
 {
-	int	count;
+	int	result;
 
+	result = 0;
 	if (c == "c")
 	{
-		ft_putchar(...);
-		count++;
+		ft_putchar(va_arg(arguments, char));
+		result++;
 	}
 	if (c == "s")
 	{
-		ft_putstr(...);
-		count = count + ft_strlen();
+		ft_putstr(va_arg(arguments, char *));
+		result = result + ft_strlen();
 	}
 	if (c == "p")
 		;
 	if (c == "d")
 		;
 	if (c == "i")
-		ft_putnbr(...);
+		ft_putnbr(va_arg(arguments, (long long)));
 	if (c == "u")
-		;
+		ft_putnbr(va_arg(arguments, (long long)));
 	if (c == "x")
-		ft_putnbr_base(..., "0123456789abcdef");
+		ft_putnbr_base(va_arg(arguments, (unsigned int)), "0123456789abcdef");
 	if (c == "X")
-		ft_putnbr_base(..., "0123456789ABCDEF");
+		ft_putnbr_base(va_arg(arguments, (unsigned int)), "0123456789ABCDEF");
 	if (c == "%")
 	{
 		write(1, "%", 1);
-		count++;
+		result++;
 	}
-	return (count);
+	return (result);
 }

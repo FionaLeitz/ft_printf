@@ -15,18 +15,23 @@
 int	ft_printf(const char *str, ...)
 {
 	int	count;
+	int	result;
 
 	count = 0;
+	result = 0;
 	while (str[count])
 	{
 		while (str[count] != "%" && str[count])
 		{
 			write(1, &str[count], 1);
+			result++;
 			count++;
 		}
 		if (str[count])
-			count = count + ft_select(str[count + 1], );
-
+		{
+			result = result + ft_select(str[count + 1], );
+			count += 2;
+		}
 	}
-	return (count);
+	return (result);
 }
