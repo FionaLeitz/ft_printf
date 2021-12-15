@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_choice.c                                        :+:      :+:    :+:   */
+/*   ft_select.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fleitz <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: fleitz <fleitz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 16:10:10 by fleitz            #+#    #+#             */
-/*   Updated: 2021/12/14 09:50:18 by fleitz           ###   ########.fr       */
+/*   Updated: 2021/12/15 17:35:57 by fleitz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,31 +16,22 @@ int	ft_select(char c, va_list arguments)
 {
 	int	result;
 
-	result = 0;
+	result = 1;
 	if (c == 'c')
-	{
-		ft_putchar((int) va_arg(arguments, int));
-		result++;
-	}
-	if (c == 's')
-		result += ft_putstr((char *) va_arg(arguments, char *));
-		
-	//if (c == 'p')
-	//	;
-	if (c == 'd')
-		result += ft_putnbr(va_arg(arguments, int));
-	if (c == 'i')
-		result += ft_putnbr(va_arg(arguments, int));
-	if (c == 'u')
-		result += ft_putnbr_unsigned(va_arg(arguments, unsigned int));
-//	if (c == 'x')
-//		ft_putnbr_base(va_arg(arguments, (unsigned int)), "0123456789abcdef");
-//	if (c == 'X')
-//		ft_putnbr_base(va_arg(arguments, (unsigned int)), "0123456789ABCDEF");
-	if (c == '%')
-		{
-		write(1, "%", 1);
-		result++;
-	}
+		result = ft_putchar((int) va_arg(arguments, int));
+	else if (c == 's')
+		result = ft_putstr((char *) va_arg(arguments, char *));
+	else if (c == 'p')
+		result = ft_putnbr_16(va_arg(arguments, uintptr_t), c);
+	else if (c == 'd')
+		result = ft_putnbr(va_arg(arguments, int));
+	else if (c == 'i')
+		result = ft_putnbr(va_arg(arguments, int));
+	else if (c == 'u')
+		result = ft_putnbr_unsigned(va_arg(arguments, unsigned int));
+//	else if (c == 'x' || c == 'X')
+//		result = ft_putnbr_16(va_arg(arguments, unsigned int), c);
+	else
+		write(1, &c, 1);
 	return (result);
 }
