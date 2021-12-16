@@ -6,11 +6,11 @@
 /*   By: fleitz <fleitz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 10:18:09 by fleitz            #+#    #+#             */
-/*   Updated: 2021/12/15 17:35:56 by fleitz           ###   ########.fr       */
+/*   Updated: 2021/12/16 10:01:00 by fleitz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_putstr(char *str)
 {

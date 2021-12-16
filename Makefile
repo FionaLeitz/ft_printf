@@ -6,24 +6,34 @@
 #    By: fleitz <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/09 15:40:50 by fleitz            #+#    #+#              #
-#    Updated: 2021/12/09 15:46:46 by fleitz           ###   ########.fr        #
+#    Updated: 2021/12/16 10:10:23 by fleitz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libftprintf.a
 
-SRCS		= 
+SRCS		= ft_printf.c				\
+			  ft_putchar.c				\
+			  ft_putnbr.c				\
+			  ft_putnbr_16.c			\
+			  ft_putnbr_unsigned.c		\
+			  ft_putptr.c				\
+			  ft_putstr.c				\
+			  ft_select.c				\
+			  ft_strlen.c				\
 
 OBJS		= ${SRCS:.c=.o}
+
+HEADERS		= ft_printf.h
 
 CC			= gcc
 
 CFLAGS		= -Wall -Wextra -Werror
 
-all:		$(NAME)
+all:		${NAME}
 
-$(NAME):	${OBJS}
-			ar -rcs ${NAME} ${OBJS} 
+${NAME}:	${OBJS}
+			ar -rcs ${NAME} ${HEADERS} ${OBJS}
 
 %.o: %.c
 			${CC} ${CFLAGS} -c $< -o $@
@@ -36,4 +46,4 @@ fclean:		clean
 
 re:			fclean all
 
-.PHONY:		${NAME}
+.PHONY:		clean fclean re all
