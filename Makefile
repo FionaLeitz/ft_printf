@@ -6,7 +6,7 @@
 #    By: fleitz <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/09 15:40:50 by fleitz            #+#    #+#              #
-#    Updated: 2021/12/16 10:10:23 by fleitz           ###   ########.fr        #
+#    Updated: 2021/12/16 10:32:03 by fleitz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,10 +30,10 @@ CC			= gcc
 
 CFLAGS		= -Wall -Wextra -Werror
 
-all:		${NAME}
+all:		$(NAME)
 
-${NAME}:	${OBJS}
-			ar -rcs ${NAME} ${HEADERS} ${OBJS}
+$(NAME):	${OBJS}
+			ar -rcs ${NAME} ${OBJS} ${HEADERS}
 
 %.o: %.c
 			${CC} ${CFLAGS} -c $< -o $@
